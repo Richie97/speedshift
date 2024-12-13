@@ -7,6 +7,7 @@
   width: 100%;
   background-color: black;
   color: darkgray;
+  padding: 20px;
 }
 
 .titleContainer {
@@ -14,6 +15,8 @@
   align-items: center;
   gap: 16px;
   margin-bottom: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .logo {
@@ -26,14 +29,50 @@
   color: white;
   font-weight: 600;
   letter-spacing: -1px;
+  text-align: center;
 }
 
 .subtitle {
   font-size: 24px;
   color: darkgray;
   text-decoration: none;
+  text-align: center;
 }
 
 .subtitle:hover {
   text-decoration: underline;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .title {
+    font-size: 48px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .logo {
+    height: 40px;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .titleContainer {
+    gap: 12px;
+  }
+
+  .logo {
+    height: 32px;
+  }
 }
