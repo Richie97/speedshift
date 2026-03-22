@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from './index.module.css';
@@ -7,6 +7,36 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 const Home: React.FC = () => {
+  const spotlightRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = spotlightRef.current;
+    if (!el) return;
+
+    const setCenter = (x: number, y: number) => {
+      el.style.setProperty('--spotlight-x', `${x}px`);
+      el.style.setProperty('--spotlight-y', `${y}px`);
+    };
+
+    setCenter(window.innerWidth / 2, window.innerHeight / 2);
+
+    const onMove = (e: MouseEvent) => setCenter(e.clientX, e.clientY);
+
+    const root = document.documentElement;
+    const onLeaveWindow = () => el.classList.add(styles.spotlightHidden);
+    const onEnterWindow = () => el.classList.remove(styles.spotlightHidden);
+
+    window.addEventListener('mousemove', onMove);
+    root.addEventListener('mouseleave', onLeaveWindow);
+    root.addEventListener('mouseenter', onEnterWindow);
+
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      root.removeEventListener('mouseleave', onLeaveWindow);
+      root.removeEventListener('mouseenter', onEnterWindow);
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -40,20 +70,23 @@ const Home: React.FC = () => {
       </Head>
       
       <div className={`${styles.container} ${inter.className}`}>
-        <div className={styles.titleContainer}>
-          <Image
-            src="/logo.svg"
-            alt="Speedshift Logo"
-            className={styles.logo}
-            width={60}
-            height={60}
-            priority
-          />
-          <h1 className={styles.title}>Speedshift</h1>
+        <div ref={spotlightRef} className={styles.spotlight} aria-hidden />
+        <div className={styles.content}>
+          <div className={styles.titleContainer}>
+            <Image
+              src="/logo.svg"
+              alt="Speedshift Logo"
+              className={styles.logo}
+              width={60}
+              height={60}
+              priority
+            />
+            <h1 className={styles.title}>Speedshift</h1>
+          </div>
+          <a href="mailto:eric@speedshift.io" className={styles.subtitle}>
+            Accelerate your business
+          </a>
         </div>
-        <a href="mailto:eric@speedshift.io" className={styles.subtitle}>
-          Accelerate your business
-        </a>
       </div>
     </>
   );
