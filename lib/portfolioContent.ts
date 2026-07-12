@@ -23,18 +23,24 @@ export const products = [
   {
     name: 'Greenlight',
     context: 'Shift',
-    href: 'https://greenlightbyshift.com',
-    domain: 'greenlightbyshift.com',
     detail:
       'Governed enterprise vibe coding. Greenlight lets employees ship AI-built internal apps while IT keeps full visibility and control—every request scoped, approved, audited, and brokered without raw credentials in generated code, with automated security and compliance review before anything reaches a sandbox.',
+    links: [
+      { label: 'greenlightbyshift.com', href: 'https://greenlightbyshift.com' },
+    ],
   },
   {
     name: 'TrackHistory',
     context: 'Personal project',
-    href: 'https://trackhistory.app',
-    domain: 'trackhistory.app',
     detail:
       'An HPDE/track-day logbook: events, sessions, lap times, and notes per track, with progress charts over time. Imports lap times directly from Corvette PDR recordings in the browser—reading the embedded Cosworth telemetry from multi-gigabyte videos without ever uploading them. Built on Cloudflare Workers and D1.',
+    links: [
+      { label: 'trackhistory.app', href: 'https://trackhistory.app' },
+      {
+        label: 'GitHub — Richie97/track-history',
+        href: 'https://github.com/Richie97/track-history',
+      },
+    ],
   },
 ] as const;
 
