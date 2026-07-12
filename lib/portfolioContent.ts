@@ -10,8 +10,31 @@ export const intro =
   'Engineering leader focused on human-centric AI, product delivery at scale, and teams that ship. Deep background in mobile, web, backend, cloud, and modern AI—from architecture and technical strategy to coaching leaders and senior contributors.';
 
 export const shiftLinks = [
-  { label: 'Basis', href: 'https://www.shifthq.ai/basis' },
-  { label: 'Folio', href: 'https://www.shifthq.ai/folio' },
+  { label: 'Basis', href: 'https://www.shifthq.ai/basis', domain: 'shifthq.ai' },
+  { label: 'Folio', href: 'https://www.shifthq.ai/folio', domain: 'shifthq.ai' },
+  {
+    label: 'Greenlight',
+    href: 'https://greenlightbyshift.com',
+    domain: 'greenlightbyshift.com',
+  },
+] as const;
+
+export const products = [
+  {
+    name: 'Greenlight',
+    context: 'Shift',
+    href: 'https://greenlightbyshift.com',
+    domain: 'greenlightbyshift.com',
+    detail:
+      'Governed enterprise vibe coding. Greenlight lets employees ship AI-built internal apps while IT keeps full visibility and control—every request scoped, approved, audited, and brokered without raw credentials in generated code, with automated security and compliance review before anything reaches a sandbox.',
+  },
+  {
+    name: 'TrackHistory',
+    context: 'Personal project',
+    href: 'https://trackhistory.app',
+    domain: 'trackhistory.app',
+    detail: 'An independent app project—live at trackhistory.app.',
+  },
 ] as const;
 
 export const featuredRoles = [

@@ -9,6 +9,7 @@ import {
   intro,
   linkedInUrl,
   name,
+  products,
   selectedProjects,
   shiftLinks,
   skillTags,
@@ -93,11 +94,33 @@ const Portfolio: React.FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {l.label} — shifthq.ai
+                      {l.label} — {l.domain}
                     </a>
                   ))}
                 </div>
               ) : null}
+            </article>
+          ))}
+
+          <p className={styles.sectionLabelSpaced}>Products</p>
+          <p className={styles.sectionHint}>
+            Things I’m building and shipping right now.
+          </p>
+          {products.map((product) => (
+            <article key={product.name} className={styles.card}>
+              <div className={styles.cardTitle}>{product.name}</div>
+              <div className={styles.cardOrg}>{product.context}</div>
+              <p className={styles.cardDetail}>{product.detail}</p>
+              <div className={styles.shiftLinks}>
+                <a
+                  href={product.href}
+                  className={styles.shiftLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit — {product.domain}
+                </a>
+              </div>
             </article>
           ))}
 
