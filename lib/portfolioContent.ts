@@ -34,7 +34,7 @@ export const products = [
     href: 'https://trackhistory.app',
     domain: 'trackhistory.app',
     detail:
-      'Lap-time tracking for HPDE drivers. Log track days, analyze lap times, and process Corvette Performance Data Recorder (PDR) footage and telemetry.',
+      'An HPDE/track-day logbook: events, sessions, lap times, and notes per track, with progress charts over time. Imports lap times directly from Corvette PDR recordings in the browser—reading the embedded Cosworth telemetry from multi-gigabyte videos without ever uploading them. Built on Cloudflare Workers and D1.',
   },
 ] as const;
 
