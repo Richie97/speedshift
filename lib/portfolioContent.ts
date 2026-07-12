@@ -33,7 +33,8 @@ export const products = [
     context: 'Personal project',
     href: 'https://trackhistory.app',
     domain: 'trackhistory.app',
-    detail: 'An independent app project—live at trackhistory.app.',
+    detail:
+      'Lap-time tracking for HPDE drivers. Log track days, analyze lap times, and process Corvette Performance Data Recorder (PDR) footage and telemetry.',
   },
 ] as const;
 
