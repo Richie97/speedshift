@@ -10,8 +10,38 @@ export const intro =
   'Engineering leader focused on human-centric AI, product delivery at scale, and teams that ship. Deep background in mobile, web, backend, cloud, and modern AI—from architecture and technical strategy to coaching leaders and senior contributors.';
 
 export const shiftLinks = [
-  { label: 'Basis', href: 'https://www.shifthq.ai/basis' },
-  { label: 'Folio', href: 'https://www.shifthq.ai/folio' },
+  { label: 'Basis', href: 'https://www.shifthq.ai/basis', domain: 'shifthq.ai' },
+  { label: 'Folio', href: 'https://www.shifthq.ai/folio', domain: 'shifthq.ai' },
+  {
+    label: 'Greenlight',
+    href: 'https://greenlightbyshift.com',
+    domain: 'greenlightbyshift.com',
+  },
+] as const;
+
+export const products = [
+  {
+    name: 'Greenlight',
+    context: 'Shift',
+    detail:
+      'Governed enterprise vibe coding. Greenlight lets employees ship AI-built internal apps while IT keeps full visibility and control—every request scoped, approved, audited, and brokered without raw credentials in generated code, with automated security and compliance review before anything reaches a sandbox.',
+    links: [
+      { label: 'greenlightbyshift.com', href: 'https://greenlightbyshift.com' },
+    ],
+  },
+  {
+    name: 'TrackHistory',
+    context: 'Personal project',
+    detail:
+      'An HPDE/track-day logbook: events, sessions, lap times, and notes per track, with progress charts over time. Imports lap times directly from Corvette PDR recordings in the browser—reading the embedded Cosworth telemetry from multi-gigabyte videos without ever uploading them. Built on Cloudflare Workers and D1.',
+    links: [
+      { label: 'trackhistory.app', href: 'https://trackhistory.app' },
+      {
+        label: 'GitHub — Richie97/track-history',
+        href: 'https://github.com/Richie97/track-history',
+      },
+    ],
+  },
 ] as const;
 
 export const featuredRoles = [
