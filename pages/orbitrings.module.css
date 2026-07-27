@@ -1,0 +1,651 @@
+/* Orbit Rings promo page.
+   Uses the app's "night orbit" dark theme: deep violet-tinted neutrals (never
+   pure black), one hue per relationship circle at matched lightness, and the
+   rings glowing against the dark rather than sitting on it. Hex fallbacks come
+   first so the page still reads correctly without oklch(). */
+
+.page {
+  --night-0: #14121f;
+  --night-0: oklch(0.16 0.02 288);
+  --night-1: #1d1a2b;
+  --night-1: oklch(0.21 0.022 288);
+  --night-2: #262336;
+  --night-2: oklch(0.25 0.024 288);
+  --hairline: #322e45;
+  --hairline: oklch(0.31 0.022 288);
+
+  --text-primary: #f3f1f8;
+  --text-primary: oklch(0.96 0.01 290);
+  --text-secondary: #c8c4d3;
+  --text-secondary: oklch(0.82 0.014 290);
+  --text-tertiary: #9a96a8;
+  --text-tertiary: oklch(0.66 0.018 290);
+
+  --brand: #9d8cf0;
+  --brand: oklch(0.72 0.14 287);
+  --brand-hover: #b0a2f5;
+  --brand-hover: oklch(0.78 0.13 287);
+  --brand-ink: #14121f;
+  --brand-soft: rgba(157, 140, 240, 0.22);
+  --brand-soft: oklch(0.72 0.14 287 / 0.22);
+
+  --ring-best: #f0a3a4;
+  --ring-best: oklch(0.8 0.12 18);
+  --ring-close: #f0c184;
+  --ring-close: oklch(0.84 0.11 72);
+  --ring-friends: #86d8bf;
+  --ring-friends: oklch(0.82 0.1 172);
+  --ring-acq: #a5b2ec;
+  --ring-acq: oklch(0.79 0.11 272);
+
+  --warm: #63c58f;
+  --warm: oklch(0.72 0.11 155);
+  --cool: #dbab5c;
+  --cool: oklch(0.8 0.11 78);
+  --cold: #d96a5e;
+  --cold: oklch(0.63 0.16 22);
+
+  --radius: 16px;
+  --maxw: 1060px;
+
+  min-height: 100vh;
+  background: var(--night-0);
+  color: var(--text-secondary);
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- header ---------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--hairline);
+  background: rgba(20, 18, 31, 0.78);
+  backdrop-filter: blur(18px);
+}
+
+.header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.brandMark {
+  width: 26px;
+  height: 26px;
+  flex: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.nav a {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.nav a:hover {
+  color: var(--text-primary);
+}
+
+.nav a:focus-visible,
+.footerLinks a:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  padding: 64px 0 72px;
+  background:
+    radial-gradient(90% 90% at 78% 18%, rgba(157, 140, 240, 0.16) 0%, transparent 62%),
+    var(--night-0);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.heroGrid {
+  display: grid;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr 420px;
+  }
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 16px;
+}
+
+.headline {
+  font-size: clamp(2.1rem, 5.5vw, 3.1rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+}
+
+.lede {
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  line-height: 1.65;
+  color: var(--text-tertiary);
+  max-width: 40em;
+  margin-bottom: 24px;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 15px 7px 12px;
+  border-radius: 999px;
+  background: var(--brand-soft);
+  border: 1px solid rgba(157, 140, 240, 0.32);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 26px;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 0 4px rgba(157, 140, 240, 0.18);
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn,
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 24px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--hairline);
+  color: var(--text-primary);
+  transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+}
+
+.btn:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.btnPrimary {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--brand-ink);
+  box-shadow: 0 8px 26px rgba(157, 140, 240, 0.22);
+}
+
+.btnPrimary:hover {
+  background: var(--brand-hover);
+  border-color: var(--brand-hover);
+  color: var(--brand-ink);
+}
+
+.btn:focus-visible,
+.btnPrimary:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+.statusNote {
+  margin-top: 22px;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-tertiary);
+  max-width: 34em;
+  padding-left: 15px;
+  border-left: 2px solid var(--hairline);
+}
+
+/* ---------- hero diagram ---------- */
+
+.heroArt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.diagram {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  overflow: visible;
+}
+
+.aura {
+  animation: breathe 9s ease-in-out infinite;
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(0.97);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.ringTrack {
+  fill: none;
+  stroke-width: 1.6;
+  opacity: 0.42;
+}
+
+.ringSpin {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: orbitSpin var(--spin, 200s) linear infinite;
+}
+
+/* Counter-rotates each avatar at the same rate, so the initials stay upright
+   while the ring turns. Same duration and timing function keeps them locked. */
+.seat {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: orbitSpinBack var(--spin, 200s) linear infinite;
+}
+
+@keyframes orbitSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitSpinBack {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.seatDot {
+  fill: var(--night-1);
+  stroke-width: 1.6;
+}
+
+.seatLabel {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.seatNudge {
+  stroke: var(--cold);
+  stroke-width: 1.6;
+  animation: nudgePulse 2.6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes nudgePulse {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.1);
+  }
+}
+
+.you {
+  fill: var(--text-primary);
+  opacity: 0.94;
+}
+
+.youLabel {
+  fill: var(--night-0);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Per-ring hues — applied to tracks, dots, labels and the ring cards alike. */
+.best {
+  --hue: var(--ring-best);
+}
+.close {
+  --hue: var(--ring-close);
+}
+.friends {
+  --hue: var(--ring-friends);
+}
+.acq {
+  --hue: var(--ring-acq);
+}
+
+.ringTrack.best,
+.ringTrack.close,
+.ringTrack.friends,
+.ringTrack.acq {
+  stroke: var(--hue);
+}
+
+.seatDot.best,
+.seatDot.close,
+.seatDot.friends,
+.seatDot.acq {
+  stroke: var(--hue);
+}
+
+.seatLabel.best,
+.seatLabel.close,
+.seatLabel.friends,
+.seatLabel.acq {
+  fill: var(--hue);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  font-size: 12.5px;
+  color: var(--text-tertiary);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.legendDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.legendDot.warm,
+.warmthDot.warm {
+  background: var(--warm);
+}
+.legendDot.cool,
+.warmthDot.cool {
+  background: var(--cool);
+}
+.legendDot.cold,
+.warmthDot.cold {
+  background: var(--cold);
+}
+
+/* ---------- sections ---------- */
+
+.section {
+  padding: 76px 0;
+}
+
+.sectionAlt {
+  background: linear-gradient(180deg, rgba(157, 140, 240, 0.05) 0%, transparent 100%),
+    var(--night-0);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.sectionTitle {
+  font-size: clamp(1.55rem, 3.2vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.sectionTitleSpaced {
+  margin-top: 64px;
+}
+
+.sectionSub {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-tertiary);
+  max-width: 50em;
+  margin-bottom: 40px;
+}
+
+/* ---------- ring cards ---------- */
+
+.ringGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.ringCard {
+  position: relative;
+  background: var(--night-1);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 22px;
+  overflow: hidden;
+}
+
+.ringCard::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--hue);
+}
+
+.ringBadge {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--hue);
+  background: color-mix(in oklab, var(--hue) 16%, transparent);
+  margin-bottom: 14px;
+}
+
+.ringName {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 7px;
+}
+
+.ringBlurb {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-tertiary);
+  margin-bottom: 16px;
+}
+
+/* Fixed two-column grid rather than a wrapping flex row: the cadence strings
+   differ enough in length that flex broke the alignment card-to-card. */
+.ringMeta {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 4px 18px;
+  margin: 0;
+}
+
+.ringMeta dt {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  opacity: 0.75;
+  margin-bottom: 3px;
+}
+
+.ringMeta dd {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ---------- features ---------- */
+
+.featureGrid,
+.craftGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+}
+
+.feature,
+.craftCard {
+  background: var(--night-1);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.craftCard {
+  background: transparent;
+  border-color: transparent;
+  border-top: 2px solid var(--hairline);
+  border-radius: 0;
+  padding: 18px 0 0;
+}
+
+.glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  margin-bottom: 16px;
+}
+
+.glyph svg {
+  width: 21px;
+  height: 21px;
+}
+
+.featureTitle {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.featureBody {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-tertiary);
+}
+
+/* ---------- warmth ---------- */
+
+.warmthRow {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.warmthCard {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--night-1);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.warmthDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex: none;
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  border-top: 1px solid var(--hairline);
+  padding: 28px 0 44px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: space-between;
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footerLinks a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.footerLinks a:hover {
+  color: var(--brand);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -220,6 +220,19 @@
   outline-offset: 2px;
 }
 
+/* The in-site promo page for a product, set apart from its outbound links. */
+.shiftLinkFeatured {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-weight: 500;
+}
+
+.shiftLinkFeatured:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
 .proseBlock {
   font-size: 0.98rem;
   line-height: 1.65;

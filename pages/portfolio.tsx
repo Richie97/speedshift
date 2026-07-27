@@ -112,6 +112,14 @@ const Portfolio: React.FC = () => {
               <div className={styles.cardOrg}>{product.context}</div>
               <p className={styles.cardDetail}>{product.detail}</p>
               <div className={styles.shiftLinks}>
+                {product.page ? (
+                  <Link
+                    href={product.page}
+                    className={`${styles.shiftLink} ${styles.shiftLinkFeatured}`}
+                  >
+                    Learn more about {product.name} →
+                  </Link>
+                ) : null}
                 {product.links.map((link) => (
                   <a
                     key={link.href}
