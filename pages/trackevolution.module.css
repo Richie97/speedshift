@@ -1,0 +1,409 @@
+/* Track Evolution promo page.
+   Mirrors the app's own tokens (docs.trackevolution.app): near-black surfaces,
+   one electric-lime accent used sparingly, flat depth — hairline plus a single
+   surface step, never a shadow stack. */
+
+.page {
+  --bg-page: #0a0a0b;
+  --bg-subtle: #0e0e10;
+  --surface-card: #131316;
+  --hairline: rgba(255, 255, 255, 0.09);
+  --hairline-strong: rgba(255, 255, 255, 0.16);
+
+  --text-strong: #f6f6f7;
+  --text-body: #d6d6d9;
+  --text-muted: #97979e;
+  --text-faint: #6c6c73;
+
+  --accent: #c8f24e;
+  --accent-hover: #d5fb63;
+  --accent-contrast: #0c1400;
+  --accent-tint: rgba(200, 242, 78, 0.14);
+
+  --radius: 12px;
+  --maxw: 1040px;
+
+  min-height: 100vh;
+  background: var(--bg-page);
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- header ---------- */
+
+.header {
+  border-bottom: 1px solid var(--hairline);
+  background: rgba(10, 10, 11, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 60px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-strong);
+  letter-spacing: -0.01em;
+}
+
+.brandMark {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.nav a:hover {
+  color: var(--text-strong);
+}
+
+.nav a:focus-visible,
+.footerLinks a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  padding: 72px 0 64px;
+  background:
+    radial-gradient(80% 120% at 50% -10%, rgba(200, 242, 78, 0.08) 0%, transparent 60%),
+    var(--bg-page);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 18px;
+}
+
+.headline {
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+  color: var(--text-strong);
+  max-width: 16em;
+  margin-bottom: 20px;
+}
+
+.accentText {
+  color: var(--accent);
+}
+
+.lede {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 44em;
+  margin-bottom: 32px;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn,
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--hairline-strong);
+  color: var(--text-strong);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btnPrimary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 600;
+}
+
+.btnPrimary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.btn:focus-visible,
+.btnPrimary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------- hero chart ---------- */
+
+.heroChart {
+  margin: 44px 0 0;
+  padding: 20px 20px 14px;
+  background: var(--surface-card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+}
+
+.heroChart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.heroChart figcaption {
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--text-faint);
+}
+
+.chartGrid line {
+  stroke: rgba(255, 255, 255, 0.07);
+  stroke-width: 1;
+}
+
+.chartAxis text {
+  fill: var(--text-faint);
+  font-size: 11px;
+}
+
+.chartLine {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.chartDots circle {
+  fill: var(--accent);
+}
+
+.chartBest {
+  fill: var(--accent);
+  font-size: 12px;
+}
+
+/* ---------- stat strip ---------- */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  margin-top: 28px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.stat {
+  background: var(--bg-subtle);
+  padding: 18px 20px;
+}
+
+.statValue {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-strong);
+  letter-spacing: -0.01em;
+}
+
+.statLabel {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: var(--text-faint);
+  line-height: 1.4;
+}
+
+/* ---------- sections ---------- */
+
+.section {
+  padding: 72px 0;
+}
+
+.sectionAlt {
+  background: var(--bg-subtle);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.sectionTitle {
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--text-strong);
+  margin-bottom: 12px;
+}
+
+.sectionSub {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 48em;
+  margin-bottom: 40px;
+}
+
+/* ---------- features ---------- */
+
+.featureGrid,
+.sourceGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+
+.feature,
+.source {
+  background: var(--surface-card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+
+.glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--accent-tint);
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.glyph svg {
+  width: 19px;
+  height: 19px;
+}
+
+.featureTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.featureBody {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ---------- steps ---------- */
+
+.steps {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  list-style: none;
+  margin: 0 0 36px;
+  padding: 0;
+}
+
+.step {
+  border-top: 2px solid var(--hairline-strong);
+  padding-top: 16px;
+}
+
+.stepNum {
+  display: block;
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.buildNote {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-faint);
+  max-width: 44em;
+  margin-bottom: 28px;
+  padding-left: 16px;
+  border-left: 2px solid var(--hairline);
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  border-top: 1px solid var(--hairline);
+  padding: 28px 0 40px;
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+.footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: space-between;
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footerLinks a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footerLinks a:hover {
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

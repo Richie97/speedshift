@@ -23,6 +23,7 @@ export const products = [
   {
     name: 'Greenlight',
     context: 'Shift',
+    page: null,
     detail:
       'Governed enterprise vibe coding. Greenlight lets employees ship AI-built internal apps while IT keeps full visibility and control—every request scoped, approved, audited, and brokered without raw credentials in generated code, with automated security and compliance review before anything reaches a sandbox.',
     links: [
@@ -30,15 +31,29 @@ export const products = [
     ],
   },
   {
-    name: 'TrackHistory',
+    name: 'Track Evolution',
     context: 'Personal project',
+    page: '/trackevolution',
     detail:
-      'An HPDE/track-day logbook: events, sessions, lap times, and notes per track, with progress charts over time. Imports lap times directly from Corvette PDR recordings in the browser—reading the embedded Cosworth telemetry from multi-gigabyte videos without ever uploading them. Built on Cloudflare Workers and D1.',
+      'An HPDE/track-day logbook: events, sessions, lap times, and notes per track, with progress charts over time. Imports lap times directly from Corvette PDR recordings in the browser—reading the embedded Cosworth telemetry from multi-gigabyte videos without ever uploading them. Built on Cloudflare Workers and D1, with iOS and Android apps that time laps from the phone’s GPS.',
     links: [
-      { label: 'trackhistory.app', href: 'https://trackhistory.app' },
+      { label: 'trackevolution.app', href: 'https://trackevolution.app' },
       {
         label: 'GitHub — Richie97/track-history',
         href: 'https://github.com/Richie97/track-history',
+      },
+    ],
+  },
+  {
+    name: 'Orbit Rings',
+    context: 'Personal project',
+    page: '/orbitrings',
+    detail:
+      'A personal relationship manager for iOS and Android. People are sorted into four concentric circles of friendship—each with a hard capacity and its own contact cadence, after Dunbar’s layers—and the app nudges you when someone slips past theirs. Native SwiftUI and Jetpack Compose on a shared Firebase backend, with contacts integration and offline-first sync.',
+    links: [
+      {
+        label: 'GitHub — Richie97/OrbitRings',
+        href: 'https://github.com/Richie97/OrbitRings',
       },
     ],
   },
