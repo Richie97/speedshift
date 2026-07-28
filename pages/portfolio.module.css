@@ -374,6 +374,33 @@
   max-width: 32em;
 }
 
+.legalLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 13px;
+}
+
+.legalLinks a {
+  color: #7a7a7a;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legalLinks a:hover {
+  color: #ddd;
+}
+
+.legalLinks a:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 3px;
+  border-radius: 4px;
+  color: #fff;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ctaPrimary,
   .ctaGhost,

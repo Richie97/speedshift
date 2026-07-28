@@ -133,6 +133,14 @@ const Home: React.FC = () => {
             Accelerate your business
           </a>
         </div>
+        <div className={styles.legalFooter}>
+          <Link href="/privacy" className={styles.legalLink}>
+            Privacy
+          </Link>
+          <Link href="/terms" className={styles.legalLink}>
+            Terms
+          </Link>
+        </div>
       </div>
     </>
   );
