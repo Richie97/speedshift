@@ -187,6 +187,11 @@ const Portfolio: React.FC = () => {
             This page is a curated snapshot. Roles, dates, and projects match my public profile; for
             the authoritative timeline and recommendations, use LinkedIn.
           </p>
+
+          <div className={styles.legalLinks}>
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Service</Link>
+          </div>
         </div>
       </main>
     </>

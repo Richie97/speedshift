@@ -382,6 +382,8 @@ const OrbitRings: React.FC = () => {
             <span className={styles.footerLinks}>
               <Link href="/">Speedshift</Link>
               <Link href="/portfolio">Portfolio</Link>
+              <Link href="/privacy">Privacy</Link>
+              <Link href="/terms">Terms</Link>
               <a href={repoUrl} target="_blank" rel="noopener noreferrer">
                 GitHub
               </a>
