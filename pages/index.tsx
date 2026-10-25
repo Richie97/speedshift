@@ -157,9 +157,9 @@ const Home: React.FC = () => {
             />
             <h1 className={styles.title}>Speedshift</h1>
           </div>
-          <a href="mailto:eric@speedshift.io" className={styles.subtitle}>
-            Accelerate your business
-          </a>
+          <Link href="/contact" className={styles.subtitle}>
+            Fast done right
+          </Link>
         </div>
         <div className={styles.legalFooter}>
           <Link href="/privacy" className={styles.legalLink}>

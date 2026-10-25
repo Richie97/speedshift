@@ -22,7 +22,7 @@ export type LegalSection = {
 export const entity = 'Speedshift LLC';
 export const contactEmail = 'eric@speedshift.io';
 export const governingState = 'North Carolina';
-export const effectiveDate = 'July 28, 2026';
+export const effectiveDate = 'October 25, 2026';
 
 export const products = [
   {
@@ -87,7 +87,7 @@ export const privacySections: readonly LegalSection[] = [
     blocks: [
       {
         kind: 'p',
-        text: 'speedshift.com is a set of static pages. There is no account, no login, no comment form and no tracking cookie.',
+        text: 'speedshift.com is a set of static pages. There is no account, no login and no tracking cookie.',
       },
       {
         kind: 'p',
@@ -96,6 +96,10 @@ export const privacySections: readonly LegalSection[] = [
       {
         kind: 'p',
         text: `Our hosting provider also keeps standard server logs — IP address, timestamp, requested URL, user agent — for a short period to operate the site and defend against abuse. If you email an address published on the site, we receive whatever you put in that email and keep the correspondence so we can reply.`,
+      },
+      {
+        kind: 'p',
+        text: 'If you use the contact form, we receive the name, email address, company and message you enter. They are delivered to a private channel in the team messaging service we use, Slack or Discord, and used only to reply to you. They are not added to a mailing list.',
       },
     ],
   },
@@ -227,7 +231,7 @@ export const privacySections: readonly LegalSection[] = [
         items: [
           {
             term: 'Service providers',
-            body: 'Companies that run infrastructure on our behalf, under contracts that limit them to that purpose: Cloudflare (hosting, storage and delivery for Track Evolution), Google Firebase (authentication, database and push notifications for Orbit Rings), Vercel (website hosting and aggregate analytics), and Google and Apple (sign-in, app distribution and push delivery).',
+            body: 'Companies that run infrastructure on our behalf, under contracts that limit them to that purpose: Cloudflare (hosting, storage and delivery for Track Evolution), Google Firebase (authentication, database and push notifications for Orbit Rings), Vercel (website hosting and aggregate analytics), Slack or Discord (delivering contact-form messages to us), and Google and Apple (sign-in, app distribution and push delivery).',
           },
           {
             term: 'At your direction',
