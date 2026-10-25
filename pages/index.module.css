@@ -41,16 +41,18 @@
   }
 }
 
-.portfolioEntry {
+.cornerNav {
   position: fixed;
   top: 20px;
   right: 20px;
   z-index: 2;
+  display: flex;
+  gap: 8px;
   pointer-events: auto;
   transition: opacity 0.2s ease;
 }
 
-.portfolioLink {
+.cornerLink {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,32 +66,39 @@
   transition: color 0.2s ease, background-color 0.2s ease;
   /* Mask gradient position is relative to this element’s box, not the viewport — use local px from JS */
   -webkit-mask-image: radial-gradient(
-    circle 42vmin at var(--portfolio-mask-x, 50%) var(--portfolio-mask-y, 50%),
+    circle 42vmin at var(--corner-mask-x, 50%) var(--corner-mask-y, 50%),
     #fff 0%,
     rgba(255, 255, 255, 0.35) 42%,
-    transparent 72%
+    rgba(255, 255, 255, 0.12) 72%
   );
   mask-image: radial-gradient(
-    circle 42vmin at var(--portfolio-mask-x, 50%) var(--portfolio-mask-y, 50%),
+    circle 42vmin at var(--corner-mask-x, 50%) var(--corner-mask-y, 50%),
     #fff 0%,
     rgba(255, 255, 255, 0.35) 42%,
-    transparent 72%
+    rgba(255, 255, 255, 0.12) 72%
   );
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
 }
 
-.portfolioLink:hover {
+/* Cursor left the window: drop the spotlight mask but keep the icons faintly visible. */
+.cornerNavDim .cornerLink {
+  -webkit-mask-image: none;
+  mask-image: none;
+  color: rgba(255, 255, 255, 0.11);
+}
+
+.cornerLink:hover {
   color: #fff;
 }
 
-.portfolioIcon svg {
+.cornerIcon svg {
   display: block;
   width: 26px;
   height: 26px;
 }
 
-.portfolioLink:focus-visible {
+.cornerLink:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.75);
   outline-offset: 4px;
   -webkit-mask-image: none;
@@ -99,43 +108,43 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .portfolioEntry {
+  .cornerNav {
     transition: none;
   }
 
-  .portfolioLink {
+  .cornerLink {
     transition: none;
     -webkit-mask-image: radial-gradient(
       circle 42vmin at 50% 50%,
       #fff 0%,
       rgba(255, 255, 255, 0.35) 42%,
-      transparent 72%
+      rgba(255, 255, 255, 0.12) 72%
     );
     mask-image: radial-gradient(
       circle 42vmin at 50% 50%,
       #fff 0%,
       rgba(255, 255, 255, 0.35) 42%,
-      transparent 72%
+      rgba(255, 255, 255, 0.12) 72%
     );
   }
 }
 
 @media (hover: none), (pointer: coarse) {
-  .portfolioLink {
+  .cornerLink {
     -webkit-mask-image: none;
     mask-image: none;
     color: rgba(255, 255, 255, 0.38);
     background-color: rgba(255, 255, 255, 0.04);
   }
 
-  .portfolioLink:active {
+  .cornerLink:active {
     color: rgba(255, 255, 255, 0.78);
     background-color: rgba(255, 255, 255, 0.08);
   }
 }
 
 @media (max-width: 480px) {
-  .portfolioEntry {
+  .cornerNav {
     top: 14px;
     right: 14px;
   }

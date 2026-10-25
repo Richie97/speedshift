@@ -9,28 +9,31 @@ const inter = Inter({ subsets: ['latin'] });
 
 const Home: React.FC = () => {
   const spotlightRef = useRef<HTMLDivElement>(null);
-  const portfolioEntryRef = useRef<HTMLDivElement>(null);
+  const cornerNavRef = useRef<HTMLElement>(null);
   const portfolioLinkRef = useRef<HTMLAnchorElement>(null);
+  const appsLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const el = spotlightRef.current;
-    const portfolioEntry = portfolioEntryRef.current;
+    const cornerNav = cornerNavRef.current;
+    const cornerLinks = [portfolioLinkRef.current, appsLinkRef.current];
     if (!el) return;
 
     const root = document.documentElement;
 
-    const syncPortfolioMask = (clientX: number, clientY: number) => {
-      const link = portfolioLinkRef.current;
-      if (!link) return;
-      const r = link.getBoundingClientRect();
-      link.style.setProperty('--portfolio-mask-x', `${clientX - r.left}px`);
-      link.style.setProperty('--portfolio-mask-y', `${clientY - r.top}px`);
+    const syncCornerMasks = (clientX: number, clientY: number) => {
+      for (const link of cornerLinks) {
+        if (!link) continue;
+        const r = link.getBoundingClientRect();
+        link.style.setProperty('--corner-mask-x', `${clientX - r.left}px`);
+        link.style.setProperty('--corner-mask-y', `${clientY - r.top}px`);
+      }
     };
 
     const setCenter = (x: number, y: number) => {
       root.style.setProperty('--spotlight-x', `${x}px`);
       root.style.setProperty('--spotlight-y', `${y}px`);
-      syncPortfolioMask(x, y);
+      syncCornerMasks(x, y);
     };
 
     setCenter(window.innerWidth / 2, window.innerHeight / 2);
@@ -39,11 +42,11 @@ const Home: React.FC = () => {
 
     const onLeaveWindow = () => {
       el.classList.add(styles.spotlightHidden);
-      portfolioEntry?.classList.add(styles.spotlightHidden);
+      cornerNav?.classList.add(styles.cornerNavDim);
     };
     const onEnterWindow = () => {
       el.classList.remove(styles.spotlightHidden);
-      portfolioEntry?.classList.remove(styles.spotlightHidden);
+      cornerNav?.classList.remove(styles.cornerNavDim);
     };
 
     window.addEventListener('mousemove', onMove);
@@ -54,8 +57,10 @@ const Home: React.FC = () => {
       window.removeEventListener('mousemove', onMove);
       root.removeEventListener('mouseleave', onLeaveWindow);
       root.removeEventListener('mouseenter', onEnterWindow);
-      portfolioLinkRef.current?.style.removeProperty('--portfolio-mask-x');
-      portfolioLinkRef.current?.style.removeProperty('--portfolio-mask-y');
+      for (const link of cornerLinks) {
+        link?.style.removeProperty('--corner-mask-x');
+        link?.style.removeProperty('--corner-mask-y');
+      }
     };
   }, []);
 
@@ -93,14 +98,37 @@ const Home: React.FC = () => {
       
       <div className={`${styles.container} ${inter.className}`}>
         <div ref={spotlightRef} className={styles.spotlight} aria-hidden />
-        <div ref={portfolioEntryRef} className={styles.portfolioEntry}>
+        <nav ref={cornerNavRef} className={styles.cornerNav} aria-label="Site">
+          <Link
+            ref={appsLinkRef}
+            href="/trackevolution"
+            className={styles.cornerLink}
+            aria-label="Apps — Track Evolution"
+          >
+            <span className={styles.cornerIcon} aria-hidden>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="4" y="4" width="6.5" height="6.5" rx="1.5" />
+                <rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5" />
+                <rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5" />
+                <rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5" />
+              </svg>
+            </span>
+          </Link>
           <Link
             ref={portfolioLinkRef}
             href="/portfolio"
-            className={styles.portfolioLink}
+            className={styles.cornerLink}
             aria-label="Eric Richardson — portfolio"
           >
-            <span className={styles.portfolioIcon} aria-hidden>
+            <span className={styles.cornerIcon} aria-hidden>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -116,7 +144,7 @@ const Home: React.FC = () => {
               </svg>
             </span>
           </Link>
-        </div>
+        </nav>
         <div className={styles.content}>
           <div className={styles.titleContainer}>
             <Image
