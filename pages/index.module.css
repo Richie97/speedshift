@@ -69,16 +69,23 @@
     circle 42vmin at var(--corner-mask-x, 50%) var(--corner-mask-y, 50%),
     #fff 0%,
     rgba(255, 255, 255, 0.35) 42%,
-    transparent 72%
+    rgba(255, 255, 255, 0.12) 72%
   );
   mask-image: radial-gradient(
     circle 42vmin at var(--corner-mask-x, 50%) var(--corner-mask-y, 50%),
     #fff 0%,
     rgba(255, 255, 255, 0.35) 42%,
-    transparent 72%
+    rgba(255, 255, 255, 0.12) 72%
   );
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
+}
+
+/* Cursor left the window: drop the spotlight mask but keep the icons faintly visible. */
+.cornerNavDim .cornerLink {
+  -webkit-mask-image: none;
+  mask-image: none;
+  color: rgba(255, 255, 255, 0.11);
 }
 
 .cornerLink:hover {
@@ -111,13 +118,13 @@
       circle 42vmin at 50% 50%,
       #fff 0%,
       rgba(255, 255, 255, 0.35) 42%,
-      transparent 72%
+      rgba(255, 255, 255, 0.12) 72%
     );
     mask-image: radial-gradient(
       circle 42vmin at 50% 50%,
       #fff 0%,
       rgba(255, 255, 255, 0.35) 42%,
-      transparent 72%
+      rgba(255, 255, 255, 0.12) 72%
     );
   }
 }

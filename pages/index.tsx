@@ -42,11 +42,11 @@ const Home: React.FC = () => {
 
     const onLeaveWindow = () => {
       el.classList.add(styles.spotlightHidden);
-      cornerNav?.classList.add(styles.spotlightHidden);
+      cornerNav?.classList.add(styles.cornerNavDim);
     };
     const onEnterWindow = () => {
       el.classList.remove(styles.spotlightHidden);
-      cornerNav?.classList.remove(styles.spotlightHidden);
+      cornerNav?.classList.remove(styles.cornerNavDim);
     };
 
     window.addEventListener('mousemove', onMove);
