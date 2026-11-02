@@ -101,9 +101,9 @@ const Home: React.FC = () => {
         <nav ref={cornerNavRef} className={styles.cornerNav} aria-label="Site">
           <Link
             ref={appsLinkRef}
-            href="/trackevolution"
+            href="/apps"
             className={styles.cornerLink}
-            aria-label="Apps — Track Evolution"
+            aria-label="Apps"
           >
             <span className={styles.cornerIcon} aria-hidden>
               <svg

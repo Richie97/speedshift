@@ -10,7 +10,6 @@ import {
   features,
   herdrUrl,
   intro,
-  privacyUrl,
   repoUrl,
   requirements,
   screenshots,
@@ -134,9 +133,13 @@ const Shepherdr: React.FC = () => {
 
           <p className={styles.footnote}>
             Open source under the MIT license.{' '}
-            <a href={privacyUrl} className={styles.footLink} target="_blank" rel="noopener noreferrer">
+            <Link href="/privacy#shepherdr" className={styles.footLink}>
               Privacy policy
-            </a>
+            </Link>
+            {' · '}
+            <Link href="/terms#shepherdr-terms" className={styles.footLink}>
+              Terms
+            </Link>
             {' · '}
             <a href={supportUrl} className={styles.footLink} target="_blank" rel="noopener noreferrer">
               Support

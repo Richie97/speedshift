@@ -95,6 +95,7 @@ const LegalDocument: React.FC<Props> = ({ title, lede, sections, counterpart }) 
             <Link href="/">Speedshift</Link>
             <Link href="/trackevolution">Track Evolution</Link>
             <Link href="/orbitrings">Orbit Rings</Link>
+            <Link href="/shepherdr">Shepherdr</Link>
           </span>
         </footer>
       </div>

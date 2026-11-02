@@ -7,7 +7,7 @@ import { effectiveDate, termsSections } from '../lib/legalContent';
 const inter = Inter({ subsets: ['latin'] });
 
 const lede =
-  'The agreement between you and Speedshift LLC for the Speedshift website, Track Evolution and Orbit Rings. Plain terms where possible, and the safety section for Track Evolution is worth actually reading.';
+  'The agreement between you and Speedshift LLC for the Speedshift website, Track Evolution, Orbit Rings and Shepherdr. Plain terms where possible, and the safety section for Track Evolution is worth actually reading.';
 
 const Terms: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const Terms: React.FC = () => {
         <title>Terms of Service | Speedshift LLC</title>
         <meta
           name="description"
-          content="Terms of Service for the Speedshift website, Track Evolution and Orbit Rings — accounts, your content, acceptable use, track-day safety, and the legal terms."
+          content="Terms of Service for the Speedshift website, Track Evolution, Orbit Rings and Shepherdr — accounts, your content, acceptable use, track-day safety, and the legal terms."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
@@ -24,13 +24,13 @@ const Terms: React.FC = () => {
         <meta property="og:title" content="Terms of Service | Speedshift LLC" />
         <meta
           property="og:description"
-          content="The agreement covering the Speedshift website, Track Evolution and Orbit Rings."
+          content="The agreement covering the Speedshift website, Track Evolution, Orbit Rings and Shepherdr."
         />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Terms of Service | Speedshift LLC" />
         <meta
           name="twitter:description"
-          content="The agreement covering the Speedshift website, Track Evolution and Orbit Rings."
+          content="The agreement covering the Speedshift website, Track Evolution, Orbit Rings and Shepherdr."
         />
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

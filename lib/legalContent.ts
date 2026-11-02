@@ -1,9 +1,10 @@
 /**
  * Source text for the Privacy Policy and Terms of Service.
  *
- * Both documents cover the same three properties — the Speedshift site, Track
- * Evolution and Orbit Rings — so they live together and share one effective
- * date. Keep the product-specific sections in sync with what the apps actually
+ * Both documents cover the same four properties — the Speedshift site, Track
+ * Evolution, Orbit Rings and Shepherdr — so they live together and share one
+ * effective date. Shepherdr's section mirrors docs/PRIVACY.md in
+ * github.com/Richie97/shepherdr; change both together. Keep the product-specific sections in sync with what the apps actually
  * do; the data-practice claims here are load-bearing, not marketing copy.
  */
 
@@ -22,7 +23,7 @@ export type LegalSection = {
 export const entity = 'Speedshift LLC';
 export const contactEmail = 'eric@speedshift.io';
 export const governingState = 'North Carolina';
-export const effectiveDate = 'October 25, 2026';
+export const effectiveDate = 'November 1, 2026';
 
 export const products = [
   {
@@ -37,6 +38,11 @@ export const products = [
   {
     name: 'Orbit Rings',
     detail: 'The personal relationship manager for iOS and Android, currently in development.',
+  },
+  {
+    name: 'Shepherdr',
+    detail:
+      'The iPhone app for monitoring and controlling AI coding agents in Herdr, through a bridge you run on your own machine.',
   },
 ] as const;
 
@@ -57,6 +63,7 @@ export const privacySections: readonly LegalSection[] = [
           'The Speedshift website has no accounts and no login. It records privacy-preserving, aggregate visit statistics and nothing else.',
           'Track Evolution stores the logbook you build — events, sessions, lap times, notes, cars. Telemetry files you import are parsed inside your browser and the source video or data file is never uploaded to us.',
           'Orbit Rings stores the people you deliberately place into a circle and the interactions you log by hand. It never reads your call or message history, and it does not upload your whole address book.',
+          'Shepherdr has no account and collects nothing. It talks only to a hub you run on your own machine, over your own Tailscale network, so your agents’ screens, prompts and files never reach us.',
           'We never sell personal information, share it for cross-context behavioural advertising, or use your content to train machine-learning models.',
           'You can delete your account, and everything in it, at any time.',
         ],
@@ -73,7 +80,7 @@ export const privacySections: readonly LegalSection[] = [
       },
       {
         kind: 'p',
-        text: 'This policy applies to the Speedshift website, Track Evolution and Orbit Rings — described together as the "Services". It does not apply to anything else we link out to, including GitHub, LinkedIn, the App Store, Google Play, or a self-hosted copy of our open-source code run by someone else.',
+        text: 'This policy applies to the Speedshift website, Track Evolution, Orbit Rings and Shepherdr — described together as the "Services". It does not apply to anything else we link out to, including GitHub, LinkedIn, the App Store, Google Play, or a self-hosted copy of our open-source code run by someone else.',
       },
       {
         kind: 'p',
@@ -190,6 +197,45 @@ export const privacySections: readonly LegalSection[] = [
     ],
   },
   {
+    id: 'shepherdr',
+    heading: 'Shepherdr',
+    blocks: [
+      {
+        kind: 'p',
+        text: 'Shepherdr is an iPhone app for watching and steering the AI coding agents you run in Herdr. It works differently from our other products: we run no server for it, so there is nothing for us to collect.',
+      },
+      {
+        kind: 'defs',
+        items: [
+          {
+            term: 'Your own hub',
+            body: 'The app connects only to a hub you run yourself — the open-source herdr-bridge on one of your machines — reached over your private Tailscale network. Everything the app shows comes straight from your hub: terminal output, agent names, folders and statuses. Everything you send goes straight to it: prompts, keystrokes and files. None of it passes through us, and we cannot see it.',
+          },
+          {
+            term: 'No account',
+            body: 'There is no sign-up and no login. Access to your hub is controlled by your Tailscale identity, which Tailscale verifies, not us.',
+          },
+          {
+            term: 'On your phone',
+            body: 'The app stores only your hub’s address and a few display preferences, on your device. Deleting the app removes them.',
+          },
+          {
+            term: 'Push notifications',
+            body: 'If you allow notifications, your phone’s push token is sent to your own hub, which uses it to alert you through Apple Push Notification service when an agent needs you. Notification text, such as an agent’s name and machine, travels from your hub through Apple’s service to your phone. The token is kept on your hub only, and disconnecting the app removes it.',
+          },
+          {
+            term: 'Camera',
+            body: 'The camera is used only when you choose Scan QR code, to read your hub’s pairing code. Images are processed on your device and are never stored or sent anywhere.',
+          },
+        ],
+      },
+      {
+        kind: 'p',
+        text: 'Shepherdr contains no analytics, advertising or tracking code. Its network traffic goes over Tailscale, under Tailscale’s own privacy policy, to your machines, and its notifications go through Apple’s push service.',
+      },
+    ],
+  },
+  {
     id: 'use',
     heading: 'How we use information',
     blocks: [
@@ -214,7 +260,7 @@ export const privacySections: readonly LegalSection[] = [
       },
       {
         kind: 'p',
-        text: 'If you are in the European Economic Area or the United Kingdom, our legal bases are: performance of a contract with you, for everything needed to run the Services; our legitimate interests in operating, securing and improving them; your consent, for device permissions such as contacts, location and notifications, which you may withdraw at any time in your device settings; and compliance with legal obligations where they apply.',
+        text: 'If you are in the European Economic Area or the United Kingdom, our legal bases are: performance of a contract with you, for everything needed to run the Services; our legitimate interests in operating, securing and improving them; your consent, for device permissions such as contacts, location, camera and notifications, which you may withdraw at any time in your device settings; and compliance with legal obligations where they apply.',
       },
     ],
   },
@@ -278,6 +324,10 @@ export const privacySections: readonly LegalSection[] = [
       {
         kind: 'p',
         text: 'You can also delete individual items — an event, a session, a person, an interaction — without deleting your account. Aggregate analytics and server logs, which are not tied to your identity, are kept on their own short schedules.',
+      },
+      {
+        kind: 'p',
+        text: 'Shepherdr has no account and we hold nothing from it, so there is nothing for us to delete. Disconnecting the app removes your push token from your hub, and deleting the app removes your hub’s address from your phone.',
       },
     ],
   },
@@ -349,6 +399,10 @@ export const privacySections: readonly LegalSection[] = [
         kind: 'p',
         text: 'Track Evolution is open source under the Apache 2.0 licence, and anyone may deploy their own instance or point the mobile app at it. This policy covers only the instances we run. If you use an instance operated by someone else, that operator is the one handling your data, and you should ask them for their policy — we have no access to and no responsibility for it.',
       },
+      {
+        kind: 'p',
+        text: 'Shepherdr and herdr-bridge are open source under the MIT licence, and the bridge is always one you run yourself. You are the operator of your hub and of the data on it.',
+      },
     ],
   },
   {
@@ -382,7 +436,7 @@ export const termsSections: readonly LegalSection[] = [
     blocks: [
       {
         kind: 'p',
-        text: `These Terms of Service are an agreement between you and ${entity}, a North Carolina limited liability company. They govern your use of the Speedshift website, Track Evolution and Orbit Rings, together the "Services".`,
+        text: `These Terms of Service are an agreement between you and ${entity}, a North Carolina limited liability company. They govern your use of the Speedshift website, Track Evolution, Orbit Rings and Shepherdr, together the "Services".`,
       },
       {
         kind: 'p',
@@ -410,6 +464,10 @@ export const termsSections: readonly LegalSection[] = [
       },
       {
         kind: 'p',
+        text: 'Shepherdr has no account. Access to your hub depends on your Tailscale network, which you are responsible for securing.',
+      },
+      {
+        kind: 'p',
         text: 'You are responsible for activity under your account. You may close it at any time from within the app or by writing to us.',
       },
     ],
@@ -424,7 +482,7 @@ export const termsSections: readonly LegalSection[] = [
       },
       {
         kind: 'p',
-        text: 'You grant us only the licence we need to run the Services for you: to host, store, back up, process and display your content, and to transmit it to your other devices. Where you publish content yourself, such as a Track Evolution share link, that licence extends to displaying it publicly for as long as you keep the link active. The licence ends when you delete the content or your account, apart from copies in routine backups pending deletion.',
+        text: 'You grant us only the licence we need to run the Services for you: to host, store, back up, process and display your content, and to transmit it to your other devices. Where you publish content yourself, such as a Track Evolution share link, that licence extends to displaying it publicly for as long as you keep the link active. The licence ends when you delete the content or your account, apart from copies in routine backups pending deletion. What you send or see through Shepherdr never reaches us, so this licence does not cover it.',
       },
       {
         kind: 'p',
@@ -500,12 +558,35 @@ export const termsSections: readonly LegalSection[] = [
     ],
   },
   {
+    id: 'shepherdr-terms',
+    heading: 'Shepherdr: you are in control of your agents',
+    blocks: [
+      {
+        kind: 'p',
+        text: 'Read this section if you use Shepherdr. It sends real input — prompts, keystrokes, approvals, new tasks — to coding agents running on your computers, and those agents can change files, run commands and act on other systems.',
+      },
+      {
+        kind: 'list',
+        items: [
+          'You are responsible for what your agents do, including anything they do after you approve, answer or start them from your phone. Approve and Deny in a notification press a key in that agent’s terminal; read what the agent is asking before you tap.',
+          'Notification delivery depends on your hub, your network, Apple’s push service and your device, none of which we control. Notifications are best-effort — do not rely on them to catch anything time-critical or safety-critical.',
+          'Shepherdr only works with Herdr, Tailscale and a herdr-bridge you run yourself. We do not operate any of them. You are responsible for securing your Tailscale network and the machines your hub can reach, because anyone with access to your hub can control your agents.',
+          'Shepherdr is new software. Features may change or break, and the app may be discontinued.',
+        ],
+      },
+    ],
+  },
+  {
     id: 'open-source',
     heading: 'Open source and self-hosting',
     blocks: [
       {
         kind: 'p',
         text: 'Track Evolution’s source is published under the Apache License 2.0. That licence governs your use of the code, including running your own instance — these terms do not restrict rights the licence grants you, and where the two conflict about the code, the licence wins.',
+      },
+      {
+        kind: 'p',
+        text: 'Shepherdr and herdr-bridge are published under the MIT License, on the same terms: the licence governs the code, and you always operate your own bridge.',
       },
       {
         kind: 'p',
@@ -529,7 +610,7 @@ export const termsSections: readonly LegalSection[] = [
     blocks: [
       {
         kind: 'p',
-        text: 'The Services depend on third parties — Google, Apple, Cloudflare and Vercel among them — and link to third-party sites. Their terms and privacy policies govern their part, we do not control them, and we are not responsible for their content or availability.',
+        text: 'The Services depend on third parties — Google, Apple, Cloudflare, Vercel, Tailscale and Herdr among them — and link to third-party sites. Their terms and privacy policies govern their part, we do not control them, and we are not responsible for their content or availability.',
       },
     ],
   },
