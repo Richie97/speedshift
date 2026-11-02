@@ -57,6 +57,19 @@ export const products = [
       },
     ],
   },
+  {
+    name: 'Shepherdr',
+    context: 'Personal project',
+    page: '/shepherdr',
+    detail:
+      'An iPhone app for the AI coding agents you run in Herdr. See every agent on every machine, get a push notification with Approve and Deny when one is blocked, attach to a live terminal, and start new agents from your phone. Everything travels over your own Tailscale network through a small open-source Go bridge, with no accounts and no data collected.',
+    links: [
+      {
+        label: 'GitHub — Richie97/shepherdr',
+        href: 'https://github.com/Richie97/shepherdr',
+      },
+    ],
+  },
 ] as const;
 
 export const featuredRoles = [

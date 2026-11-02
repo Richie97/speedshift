@@ -1,0 +1,317 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: #000;
+  color: #b3b3b3;
+  padding: 0 0 80px;
+  overflow-x: hidden;
+}
+
+/* Soft dusk glow taken from the app icon's sky. */
+.glow {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 520px;
+  background:
+    radial-gradient(60% 70% at 20% 0%, rgba(124, 63, 168, 0.32) 0%, transparent 70%),
+    radial-gradient(50% 60% at 85% 10%, rgba(240, 114, 136, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 56px 24px 0;
+}
+
+.homeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #888;
+  text-decoration: none;
+  margin-bottom: 40px;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.homeLink:hover {
+  color: #ccc;
+}
+
+.homeLink:focus-visible,
+.inlineLink:focus-visible,
+.footLink:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+.appIcon {
+  flex-shrink: 0;
+  border-radius: 25px;
+  box-shadow: 0 10px 40px rgba(124, 63, 168, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.appName {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #c9b8e8;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.availability {
+  font-size: 12px;
+  color: #777;
+  letter-spacing: 0.02em;
+}
+
+.intro {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #d0d0d0;
+  max-width: 36em;
+  margin-bottom: 14px;
+}
+
+.introSecondary {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #9a9a9a;
+  max-width: 38em;
+  margin-bottom: 32px;
+}
+
+.inlineLink {
+  color: #e6dcf7;
+  text-decoration: underline;
+  text-decoration-color: rgba(230, 220, 247, 0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.inlineLink:hover {
+  text-decoration-color: rgba(230, 220, 247, 0.9);
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 44px;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 22px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #3b2466 0%, #6a2f7e 55%, #b0506f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.2s ease, filter 0.2s ease, transform 0.15s ease;
+}
+
+.ctaPrimary:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  filter: brightness(1.1);
+}
+
+.ctaPrimary:active {
+  transform: scale(0.98);
+}
+
+.ctaPrimary:focus-visible,
+.ctaGhost:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.65);
+  outline-offset: 3px;
+}
+
+.ctaGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  font-size: 14px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.ctaGhost:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* Screenshots: a horizontal strip that scrolls on narrow screens. */
+.shotsWrap {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.shots {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px max(24px, calc((100% - 772px) / 2)) 16px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.shot {
+  flex: 0 0 62vw;
+  max-width: 260px;
+  scroll-snap-align: center;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #111;
+}
+
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 720px) {
+  .shot {
+    flex-basis: 260px;
+  }
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.featureGrid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 44px;
+}
+
+@media (min-width: 640px) {
+  .featureGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.featureCard {
+  background: linear-gradient(160deg, rgba(28, 28, 28, 0.9) 0%, rgba(12, 12, 12, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px 22px;
+}
+
+.featureTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  margin-bottom: 12px;
+}
+
+.featureList {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.featureList li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #a3a3a3;
+}
+
+.featureList li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7cf59a;
+}
+
+.requirements {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 48px;
+  padding: 20px 22px;
+  border-left: 3px solid rgba(201, 184, 232, 0.35);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0 12px 12px 0;
+  font-size: 0.95rem;
+}
+
+.footnote {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.footLink {
+  color: #999;
+  text-decoration: none;
+}
+
+.footLink:hover {
+  color: #ddd;
+}
+
+@media (max-width: 480px) {
+  .hero {
+    gap: 16px;
+  }
+
+  .appIcon {
+    width: 84px;
+    height: 84px;
+    border-radius: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ctaPrimary,
+  .ctaGhost,
+  .homeLink,
+  .inlineLink,
+  .ctaPrimary:active {
+    transition: none;
+    transform: none;
+  }
+}
